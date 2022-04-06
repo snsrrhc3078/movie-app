@@ -12,7 +12,7 @@ function EntitySelector({ text, entity = "", color }) {
     async function getInfo() {
       const json = await (
         await fetch(
-          `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&limit=10&${entity}`
+          `https://yts.mx/api/v2/list_movies.json?sort_by=rating&limit=15&${entity}`
         )
       ).json();
       setInfo(json.data.movies);
@@ -48,56 +48,58 @@ function EntitySelector({ text, entity = "", color }) {
       <h1 className={style.genreTitle}>
         <center>{text}</center>
       </h1>
-      <button onClick={pre} className={style.pre}>
-        <div></div>
-      </button>
 
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div className={style.border}>
-          <div
-            className={style.slideBox}
-            style={{
-              width: `${info.length}00vw`,
-            }}
-          >
-            {
-              info.map((item) => {
-                return (
-                  <div
-                    className={style.slideItem}
-                    style={{
-                      transform: `translatex(-${index * 5}00px)`,
-                      backgroundColor: color,
-                    }}
-                  >
-                    <img
-                      className={style.cover}
-                      src={item.medium_cover_image}
-                    ></img>
-                    <h1 className={style.title}>
-                      {item.title.length > 40
-                        ? `${item.title.slice(0, 37)}...`
-                        : item.title}
-                    </h1>
-                    <p>{item.year}</p>
-                    <p>Rating | {item.rating}</p>
-                    <p>
-                      Genres |
-                      {item.genres.map((genre) => (
-                        <span> {genre}</span>
-                      ))}
-                    </p>
-                  </div>
-                );
-              }) //map end
-            }
+        <div>
+          <button onClick={pre} className={style.pre}>
+            <div></div>
+          </button>
+          <div className={style.border}>
+            <div
+              className={style.slideBox}
+              style={{
+                width: `${info.length}00vw`,
+              }}
+            >
+              {
+                info.map((item) => {
+                  return (
+                    <div
+                      className={style.slideItem}
+                      style={{
+                        transform: `translatex(-${index * 5}00px)`,
+                        backgroundColor: color,
+                      }}
+                    >
+                      <img
+                        className={style.cover}
+                        src={item.medium_cover_image}
+                      ></img>
+                      <h1 className={style.title}>
+                        {item.title.length > 40
+                          ? `${item.title.slice(0, 37)}...`
+                          : item.title}
+                      </h1>
+                      <p>{item.year}</p>
+                      <p>Rating | {item.rating}</p>
+                      <p>
+                        Genres |
+                        {item.genres.map((genre) => (
+                          <span> {genre}</span>
+                        ))}
+                      </p>
+                    </div> //slideItem end
+                  );
+                }) //map end
+              }
+            </div>
           </div>
+          <button onClick={next} className={style.next}></button>
         </div>
       )}
-      <button onClick={next} className={style.next}></button>
-    </div>
+    </div> //listBox end
   );
 }
 

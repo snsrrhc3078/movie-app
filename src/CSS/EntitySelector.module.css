@@ -13,6 +13,7 @@
 .title {
   height: 150px;
   margin-bottom: 0;
+  padding-right: 15px;
 }
 
 .cover {
@@ -44,7 +45,7 @@
 
 .next {
   position: absolute;
-  top: 55%;
+  top: 50%;
   z-index: 1;
   right: 5%;
   background-color: transparent !important;

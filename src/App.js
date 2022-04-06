@@ -1,9 +1,19 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./routes/Home";
-// import { BrouwerRouter as router, Switch, Route } from "react-router-dom";
+import Genre from "./routes/Genre";
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Router>
+        <Switch>
+          <Route path="/:genre">
+            <Genre />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
