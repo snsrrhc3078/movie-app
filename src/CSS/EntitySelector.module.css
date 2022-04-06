@@ -1,0 +1,95 @@
+.genreTitle {
+  color: black;
+}
+
+.slideItem {
+  background-color: gold;
+  float: left;
+  width: 500px;
+  border-radius: 20px;
+  transition: transform 0.5s;
+}
+
+.title {
+  height: 150px;
+  margin-bottom: 0;
+}
+
+.cover {
+  float: left;
+  margin-right: 20px;
+}
+
+.pre {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  left: 1%;
+  background-color: transparent !important;
+  border: 0;
+  cursor: pointer;
+}
+
+.pre::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 50px; /* 사이즈 */
+  height: 50px; /* 사이즈 */
+  border-top: 3px solid #000; /* 선 두께 */
+  border-right: 3px solid #000; /* 선 두께 */
+  transform: rotate(225deg); /* 각도 */
+}
+
+.next {
+  position: absolute;
+  top: 55%;
+  z-index: 1;
+  right: 5%;
+  background-color: transparent !important;
+  border: 0;
+  cursor: pointer;
+}
+
+.next::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 50px; /* 사이즈 */
+  height: 50px; /* 사이즈 */
+  border-bottom: 3px solid #000; /* 선 두께 */
+  border-left: 3px solid #000; /* 선 두께 */
+  transform: rotate(225deg); /* 각도 */
+}
+
+.listBox {
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.border {
+  margin-left: 5%;
+  margin-right: 5%;
+  overflow: hidden;
+  width: 2000px;
+}
+@media (max-width: 1700px) {
+  .border {
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: hidden;
+    width: 1500px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .border {
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: hidden;
+    width: 1000px;
+  }
+}
