@@ -10,6 +10,14 @@
   transition: transform 0.5s;
 }
 
+.link {
+  text-decoration: none;
+  color: black;
+}
+.link:hover {
+  text-decoration: underline;
+}
+
 .title {
   height: 150px;
   margin-bottom: 0;
@@ -25,7 +33,7 @@
   position: absolute;
   top: 50%;
   z-index: 1;
-  left: 1%;
+  left: 15px;
   background-color: transparent !important;
   border: 0;
   cursor: pointer;
@@ -47,7 +55,7 @@
   position: absolute;
   top: 50%;
   z-index: 1;
-  right: 5%;
+  right: 55px;
   background-color: transparent !important;
   border: 0;
   cursor: pointer;
@@ -69,28 +77,29 @@
   position: relative;
   margin-top: 50px;
   margin-bottom: 50px;
+  /* margin-left: 10px
+  margin-right: 50%; */
+}
+
+.wrap {
+  overflow: hidden;
+  margin: 0;
+  padding-left: 15px;
 }
 
 .border {
-  margin-left: 5%;
-  margin-right: 5%;
   overflow: hidden;
   width: 2000px;
+  height: 345px;
 }
 @media (max-width: 1700px) {
   .border {
-    margin-left: 5%;
-    margin-right: 5%;
-    overflow: hidden;
     width: 1500px;
   }
 }
 
 @media (max-width: 1200px) {
   .border {
-    margin-left: 5%;
-    margin-right: 5%;
-    overflow: hidden;
     width: 1000px;
   }
 }

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import style from "../CSS/EntitySelector.module.css";
 import propTypes from "prop-types";
 import { isContentEditable } from "@testing-library/user-event/dist/utils";
+import { Link } from "react-router-dom";
 
 function EntitySelector({ text, entity = "", color }) {
   const [loading, setLoading] = useState(true);
@@ -32,8 +33,10 @@ function EntitySelector({ text, entity = "", color }) {
       nIndexSet(4);
     } else if (1200 < window.innerWidth && window.innerWidth < 1700) {
       nIndexSet(3);
-    } else {
+    } else if (800 < window.innerWidth && window.innerWidth < 1200) {
       nIndexSet(2);
+    } else {
+      nIndexSet(1);
     }
   }
   function pre() {
@@ -41,8 +44,6 @@ function EntitySelector({ text, entity = "", color }) {
       setIndex((current) => current - 1);
     }
   }
-
-  console.log(info);
   return (
     <div className={style.listBox}>
       <h1 className={style.genreTitle}>
@@ -52,10 +53,8 @@ function EntitySelector({ text, entity = "", color }) {
       {loading ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
-          <button onClick={pre} className={style.pre}>
-            <div></div>
-          </button>
+        <div className={style.wrap}>
+          <button onClick={pre} className={style.pre}></button>
           <div className={style.border}>
             <div
               className={style.slideBox}
@@ -77,11 +76,13 @@ function EntitySelector({ text, entity = "", color }) {
                         className={style.cover}
                         src={item.medium_cover_image}
                       ></img>
-                      <h1 className={style.title}>
-                        {item.title.length > 40
-                          ? `${item.title.slice(0, 37)}...`
-                          : item.title}
-                      </h1>
+                      <Link to={`/${item.id}`} className={style.link}>
+                        <h1 className={style.title}>
+                          {item.title.length > 40
+                            ? `${item.title.slice(0, 37)}...`
+                            : item.title}
+                        </h1>
+                      </Link>
                       <p>{item.year}</p>
                       <p>Rating | {item.rating}</p>
                       <p>

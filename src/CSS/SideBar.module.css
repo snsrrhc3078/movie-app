@@ -3,7 +3,7 @@
 }
 .grid {
   display: grid;
-  grid-template-columns: 100px 200px;
+  grid-template-columns: 1fr 4fr;
   align-items: center;
   justify-items: center;
   justify-content: space-evenly;
@@ -18,17 +18,21 @@
 
 .flexMenu {
   display: flex;
-  width: 500px;
+  /* width: 500px; */
   justify-content: space-evenly;
   align-items: center;
 }
 
 .flexMenu b {
-  margin-left: 20px;
-  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .text {
   text-decoration: none;
   color: black;
+}
+
+.text:hover {
+  text-decoration: underline;
 }
