@@ -7,6 +7,9 @@ import style from "../CSS/GenreMovie.module.css";
 renderIndex
 indexItem
 link
+article
+articleBox
+articleText
 */
 
 function GenreMovies() {
@@ -54,29 +57,31 @@ function GenreMovies() {
       ) : (
         <center>
           <RenderIndex />
-
-          {info.map((item) => {
-            return (
-              <article>
-                <img src={item.medium_cover_image}></img>
-                <h3>
-                  <Link className={style.link} to={`/${item.id}`}>
-                    {item.title}
-                  </Link>
-                </h3>
-                <p>{item.year}</p>
-                <p>Rating| {item.rating}</p>
-                <p>
-                  Genres |
-                  {item.genres.map((genre, i) => (
-                    <span> {genre}</span>
-                  ))}
-                </p>
-                <summary>{item.description_full}</summary>
-              </article>
-            );
-          })}
-          {/* map end */}
+          <div className={style.articleBox}>
+            {info.map((item) => {
+              return (
+                <article className={style.article}>
+                  <img src={item.medium_cover_image}></img>
+                  <div className={style.articleText}>
+                    <h3>
+                      <Link className={style.link} to={`/${item.id}`}>
+                        {item.title}
+                      </Link>
+                    </h3>
+                    <p>{item.year}</p>
+                    <p>Rating| {item.rating}</p>
+                    <p>
+                      Genres |
+                      {item.genres.map((genre, i) => (
+                        <span> {genre}</span>
+                      ))}
+                    </p>
+                    <summary>{item.description_full}</summary>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
           <RenderIndex />
         </center>
       )}
