@@ -10,7 +10,7 @@ function App() {
           <Route path="/:entity/:page">
             <Genre />
           </Route>
-          <Route path="/:id">
+          <Route exact path="/:id">
             <Detail />
           </Route>
           <Route path="/">

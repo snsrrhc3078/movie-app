@@ -3,7 +3,7 @@ import style from "../CSS/SideBar.module.css";
 function Genres({ text, entity }) {
   return (
     <b>
-      <Link className={style.text} to={`/${entity}/1`}>
+      <Link className={style.link} to={`/${entity}/1`}>
         {text}
       </Link>
     </b>
@@ -15,7 +15,7 @@ function SideBar() {
     <div className={style.wrap}>
       <header className={style.grid}>
         <h2>
-          <Link className={style.text} to="/">
+          <Link className={style.link} to="/">
             Home
           </Link>
         </h2>

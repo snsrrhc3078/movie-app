@@ -47,7 +47,9 @@ function EntitySelector({ text, entity = "", color }) {
   return (
     <div className={style.listBox}>
       <h1 className={style.genreTitle}>
-        <center>{text}</center>
+        <Link to={`/${entity}/1`} className={style.link}>
+          {text}
+        </Link>
       </h1>
 
       {loading ? (

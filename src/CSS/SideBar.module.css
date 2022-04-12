@@ -28,11 +28,11 @@
   padding-right: 20px;
 }
 
-.text {
+.link {
   text-decoration: none;
   color: black;
 }
 
-.text:hover {
+.link:hover {
   text-decoration: underline;
 }

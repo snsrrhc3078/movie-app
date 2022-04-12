@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import style from "../CSS/GenreMovie.module.css";
+import PageIndex from "../component/PageIndex";
 
 /* css list
 renderIndex
@@ -10,12 +11,14 @@ link
 article
 articleBox
 articleText
+selectedItem
 */
 
 function GenreMovies() {
   const [loading, setLoading] = useState(1);
   const [info, setInfo] = useState([]);
   const { entity, page } = useParams();
+  const [showMore, setShowMore] = useState(140);
   useEffect(() => {
     setLoading(1);
     async function getInfo() {
@@ -30,23 +33,12 @@ function GenreMovies() {
     getInfo();
   }, [page, entity]);
 
-  function RenderIndex() {
-    const arr = [];
-    for (let i = 0; i < 10; i++) {
-      arr.push(
-        <Link
-          to={`/${entity}/${i + 1}`}
-          className={
-            parseInt(page) === i + 1
-              ? `${style.indexItem} ${style.link} ${style.selectedItem}`
-              : `${style.indexItem} ${style.link}`
-          }
-        >
-          {i + 1}
-        </Link>
-      );
-    }
-    return <div className={style.renderIndex}>{arr}</div>;
+  function ShowMore({ text }) {
+    function handleClickShow(event) {
+      event.target.innerText = text;
+    } // closure
+
+    return <span onClick={handleClickShow}> ...Show more</span>;
   }
   return (
     <div>
@@ -56,7 +48,7 @@ function GenreMovies() {
         </h1>
       ) : (
         <center>
-          <RenderIndex />
+          <PageIndex />
           <div className={style.articleBox}>
             {info.map((item) => {
               return (
@@ -76,13 +68,24 @@ function GenreMovies() {
                         <span> {genre}</span>
                       ))}
                     </p>
-                    <summary>{item.description_full}</summary>
+                    <summary>
+                      {item.description_full.length > showMore ? (
+                        <div>
+                          {`${item.description_full.slice(0, showMore)}`}
+                          <ShowMore
+                            text={item.description_full.slice(showMore)}
+                          />
+                        </div>
+                      ) : (
+                        item.description_full
+                      )}
+                    </summary>
                   </div>
                 </article>
               );
             })}
           </div>
-          <RenderIndex />
+          <PageIndex />
         </center>
       )}
     </div>

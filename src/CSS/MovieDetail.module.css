@@ -1,0 +1,44 @@
+.main {
+  border: 5px solid black;
+  width: 80%;
+  padding: 20px;
+  background-color: aliceblue;
+}
+
+.gridBox {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 20px;
+  row-gap: 20px;
+}
+
+.articleText {
+  text-align: left;
+}
+
+.summary {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  text-align: left;
+}
+
+.summary :first-child {
+  margin: 0;
+}
+
+.trailerBox {
+  grid-column: 1/3;
+  grid-row: 3/4;
+
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+}
+
+.trailer {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+}
