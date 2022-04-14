@@ -14,7 +14,7 @@ function SideBar() {
   return (
     <div className={style.wrap}>
       <header className={style.grid}>
-        <h2>
+        <h2 className={style.h2}>
           <Link className={style.link} to="/">
             Home
           </Link>
