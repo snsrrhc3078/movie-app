@@ -7,14 +7,14 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
+          <Route exact path="/movie-app">
+            <Home />
+          </Route>
           <Route path="/:entity/:page">
             <Genre />
           </Route>
-          <Route exact path="/:id">
+          <Route path="/:id">
             <Detail />
-          </Route>
-          <Route path="/">
-            <Home />
           </Route>
         </Switch>
       </Router>

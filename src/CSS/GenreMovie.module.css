@@ -26,6 +26,10 @@
   padding: 0 24px 24px 24px;
 }
 
+.showMore {
+  cursor: pointer;
+}
+
 @media (max-width: 700px) {
   .articleText {
     grid-row: 2/3;

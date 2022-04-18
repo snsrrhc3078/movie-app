@@ -12,6 +12,7 @@ article
 articleBox
 articleText
 selectedItem
+showMore
 */
 
 function GenreMovies() {
@@ -38,7 +39,12 @@ function GenreMovies() {
       event.target.innerText = text;
     } // closure
 
-    return <span onClick={handleClickShow}> ...Show more</span>;
+    return (
+      <span className={style.showMore} onClick={handleClickShow}>
+        {" "}
+        ...Show more
+      </span>
+    );
   }
   return (
     <div>

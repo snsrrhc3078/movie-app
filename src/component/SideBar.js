@@ -15,7 +15,7 @@ function SideBar() {
     <div className={style.wrap}>
       <header className={style.grid}>
         <h2 className={style.h2}>
-          <Link className={style.link} to="/">
+          <Link className={style.link} to="/movie-app">
             Home
           </Link>
         </h2>
