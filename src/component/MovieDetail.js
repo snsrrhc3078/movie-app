@@ -19,9 +19,9 @@ function MovieDetail() {
         await fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
       ).json();
       setInfo(json.data.movie);
+      setLoading(false);
     }
     getInfo();
-    setLoading(false);
   }, []);
   console.log(info);
   return (
